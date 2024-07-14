@@ -1,0 +1,224 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 58720256 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3530), pid=12140, tid=17560
+#
+# JRE version:  (18.0.1.1+2) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (18.0.1.1+2-6, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.5\lib\idea_rt.jar=56876:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.5\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 com.example.StockPicker.StockPickerApplication
+
+Host: AMD Ryzen 3 3250U with Radeon Graphics         , 4 cores, 3G,  Windows 11 , 64 bit Build 22621 (10.0.22621.3672)
+Time: Tue Jul  9 13:50:19 2024 Eastern Daylight Time elapsed time: 0.059518 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001ad6ef6dd50):  JavaThread "Unknown thread" [_thread_in_vm, id=17560, stack(0x00000011ad600000,0x00000011ad700000)]
+
+Stack: [0x00000011ad600000,0x00000011ad700000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x69887a]
+V  [jvm.dll+0x7f38bd]
+V  [jvm.dll+0x7f51ce]
+V  [jvm.dll+0x7f5883]
+V  [jvm.dll+0x25ca3f]
+V  [jvm.dll+0x6957c9]
+V  [jvm.dll+0x68a2fa]
+V  [jvm.dll+0x321efb]
+V  [jvm.dll+0x3298d6]
+V  [jvm.dll+0x37e47e]
+V  [jvm.dll+0x37e6af]
+V  [jvm.dll+0x2f9c7a]
+V  [jvm.dll+0x2facdd]
+V  [jvm.dll+0x7c24f0]
+V  [jvm.dll+0x38b801]
+V  [jvm.dll+0x7a1203]
+V  [jvm.dll+0x40d6bf]
+V  [jvm.dll+0x40f091]
+C  [jli.dll+0x526b]
+C  [ucrtbase.dll+0x29333]
+C  [KERNEL32.DLL+0x1257d]
+C  [ntdll.dll+0x5af28]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffe525cd550, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000001ad6efaa7e0 WorkerThread "GC Thread#0" [stack: 0x00000011ad700000,0x00000011ad800000] [id=4036]
+  0x000001ad6efb2490 ConcurrentGCThread "G1 Main Marker" [stack: 0x00000011ad800000,0x00000011ad900000] [id=1140]
+  0x000001ad6efb4630 WorkerThread "G1 Conc#0" [stack: 0x00000011ad900000,0x00000011ada00000] [id=17164]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffe51dfa217]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001ad6ef6bcd0] Heap_lock - owner thread: 0x000001ad6ef6dd50
+
+Heap address: 0x00000000c9400000, size: 876 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 5 size 8 Array Of Cards #cards 12 size 40 Howl #buckets 4 coarsen threshold 1843 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 2048
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x00000000c9400000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffe521e0cb9]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (1 events):
+Event: 0.049 Loaded shared library C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1\bin\java.dll
+
+
+Dynamic libraries:
+0x00007ff6f8300000 - 0x00007ff6f8310000 	C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1\bin\java.exe
+0x00007ffec9070000 - 0x00007ffec9287000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffec6e10000 - 0x00007ffec6ed4000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffec68e0000 - 0x00007ffec6c8c000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffec6450000 - 0x00007ffec6561000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffeb1670000 - 0x00007ffeb1688000 	C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1\bin\jli.dll
+0x00007ffe9cf20000 - 0x00007ffe9cf3a000 	C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1\bin\VCRUNTIME140.dll
+0x00007ffec8cd0000 - 0x00007ffec8d82000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffec8b20000 - 0x00007ffec8bc7000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffec7640000 - 0x00007ffec76ea000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffec6420000 - 0x00007ffec6448000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007ffec7970000 - 0x00007ffec7a85000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffec7390000 - 0x00007ffec753e000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffeb21c0000 - 0x00007ffeb2453000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.3672_none_2713b9d173822955\COMCTL32.dll
+0x00007ffec66d0000 - 0x00007ffec66f6000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffec6ee0000 - 0x00007ffec6f09000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffec6c90000 - 0x00007ffec6da9000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffec6630000 - 0x00007ffec66ca000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffebee70000 - 0x00007ffebee7a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffec8f90000 - 0x00007ffec8fc1000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffea0560000 - 0x00007ffea056c000 	C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1\bin\vcruntime140_1.dll
+0x00007ffe7c4a0000 - 0x00007ffe7c52d000 	C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1\bin\msvcp140.dll
+0x00007ffe51af0000 - 0x00007ffe52700000 	C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1\bin\server\jvm.dll
+0x00007ffec80e0000 - 0x00007ffec80e8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffec2470000 - 0x00007ffec24a4000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffe80160000 - 0x00007ffe80169000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffec8040000 - 0x00007ffec80b1000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffec5390000 - 0x00007ffec53a8000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffe9f2a0000 - 0x00007ffe9f2aa000 	C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1\bin\jimage.dll
+0x00007ffebfb40000 - 0x00007ffebfd72000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffec7a90000 - 0x00007ffec7e18000 	C:\WINDOWS\System32\combase.dll
+0x00007ffec8bd0000 - 0x00007ffec8ca7000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ffea4850000 - 0x00007ffea4882000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffec63a0000 - 0x00007ffec641b000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffea7080000 - 0x00007ffea708e000 	C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1\bin\instrument.dll
+0x00007ffe9cef0000 - 0x00007ffe9cf15000 	C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.3672_none_2713b9d173822955;C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1\bin\server
+
+VM Arguments:
+jvm_args: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.5\lib\idea_rt.jar=56876:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.5\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 
+java_command: com.example.StockPicker.StockPickerApplication
+java_class_path (initial): C:\Users\sande\Downloads\demo\target\classes;C:\Users\sande\.m2\repository\org\openjfx\javafx-controls\17\javafx-controls-17.jar;C:\Users\sande\.m2\repository\org\openjfx\javafx-graphics\17\javafx-graphics-17.jar;C:\Users\sande\.m2\repository\org\openjfx\javafx-base\17\javafx-base-17.jar;C:\Users\sande\.m2\repository\org\openjfx\javafx-fxml\17\javafx-fxml-17.jar;C:\Users\sande\.m2\repository\org\springframework\boot\spring-boot-starter-web\2.6.0\spring-boot-starter-web-2.6.0.jar;C:\Users\sande\.m2\repository\org\springframework\boot\spring-boot-starter\2.6.0\spring-boot-starter-2.6.0.jar;C:\Users\sande\.m2\repository\org\springframework\boot\spring-boot\2.6.0\spring-boot-2.6.0.jar;C:\Users\sande\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\2.6.0\spring-boot-autoconfigure-2.6.0.jar;C:\Users\sande\.m2\repository\org\springframework\boot\spring-boot-starter-logging\2.6.0\spring-boot-starter-logging-2.6.0.jar;C:\Users\sande\.m2\repository\ch\qos\logback\logback-classic\1.2.7\logback-classic-1.2.7.jar;C:\Users\sande\Downloads\javafx\jfxrt.jar;C:\Users\sande\.m2\repository\ch\qos\logback\logback-core\1.2.7\logback-core-1.2.7.jar;C:\Users\sande\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.14.1\log4j-to-slf4j-2.14.1.jar;C:\Users\sande\.m2\repository\org\apache\logging\log4j\log4j-api\2.14.1\log4j-api-2.14.1.jar;C:\Users\sande\.m2\repository\org\slf4j\jul-to-slf4j\1.7.32\jul-to-slf4j-1.7.32.jar;C:\Users\sande\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.5\jakarta.annotation-api-1.3.5.jar;C:\Users\sande\.m2\repository\org\yaml\snakeyaml\1.29\snakeyaml-1.29.jar;C:\Users\sande\.m2\repository\org\springframework\boot\spring-boot-starter-json\2.6.0\spring-boot-starter-json-2.6.0.jar;C:\Users\sande\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.13.0\jackson-databind-2.13.0.jar;C:\Users\sande\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.13.0\jackson-annotations-2.13.0.jar;C:\Users\sande\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.13.0\jackson-core-2.13.0.jar;C:\Users\sande\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.13.0\jackson-datatype-jdk8-2.13.0.jar;C:\Users\sande\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.13.0\jackson-datatype-jsr310-2.13.0.jar;C:\Users\sande\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.13.0\jackson-module-parameter-names-2.13.0.jar;C:\Users\sande\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\2.6.0\spring-boot-starter-tomcat-2.6.0.jar;C:\Users\sande\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\9.0.55\tomcat-embed-core-9.0.55.jar;C:\Users\sande\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\9.0.55\tomcat-embed-el-9.0.55.jar;C:\Users\sande\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\9.0.55\tomcat-embed-websocket-9.0.55.jar;C:\Users\sande\.m2\repository\org\springframework\spring-web\5.3.13\spring-web-5.3.13.jar;C:\Users\sande\.m2\repository\org\springframework\spring-beans\5.3.13\spring-beans-5.3.13.jar;C:\Users\sande\.m2\repository\org\springframework\spring-webmvc\5.3.13\spring-webmvc-5.3.13.jar;C:\Users\sande\.m2\repository\org\springframework\spring-aop\5.3.13\spring-aop-5.3.13.jar;C:\Users\sande\.m2\repository\org\springframework\spring-context\5.3.13\spring-context-5.3.13.jar;C:\Users\sande\.m2\repository\org\springframework\spring-expression\5.3.13\spring-expression-5.3.13.jar;C:\Users\sande\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\sande\.m2\repository\org\springframework\spring-core\5.3.13\spring-core-5.3.13.jar;C:\Users\sande\.m2\repository\org\springframework\spring-jcl\5.3.13\spring-jcl-5.3.13.jar;C:\Users\sande\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\sande\.m2\repository\org\apache\httpcomponents\httpcore\4.4.16\httpcore-4.4.16.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 58720256                                  {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 918552576                                 {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5832780                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122912730                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122912730                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 918552576                              {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1
+PATH=C:\Python312\Scripts\;C:\Python312\;C:\Python311\Scripts\;C:\Python311\;C:\ProgramData\Oracle\Java\javapath;C:\Users\sande\OneDrive\Desktop\19c\WINDOWS.X64_193000_db_home\bin;C:\app\sande\product\21c\dbhomeXE\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python310\Scripts\;C:\Python310\;C:\Users\sande\OneDrive\Desktop\Apache;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\apache-maven-3.8.5\bin;C:\Users\sande\AppData\Local\Programs\Microsoft VS Code\bin;C:\ProgramData\chocolatey\bin;C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1;C:\Users\sande\Downloads\spring-tool-suite-4-4.17.1.RELEASE-e4.26.0-win32.win32.x86_64.self-extracting\META-INF\maven\org.springframework.ide\self-extracting-jar-creator;C:\Users\sande\OneDrive\Desktop\jdk-9.0.4_windows-x64_bin;C:\Users\sande\OneDrive\Desktop\jdk-8u202-windows-i586;%JAVA_HOME%\bin;C:\Python\Python36-32\Scripts;C:\Python27;"C:\Python27;C:\Python27\Scripts\";C:\WINDOWS\system32;C:\Users\sande\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\nodejs\node_modules\npm\bin;C:\Program Files\nodejs\;C:\Program Files\HP\HP One Agent;C:\Program Files\Git\cmd;C:\Users\sande\AppData\Microsoft\WindowsApps;C:\Users\sande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\sande\OneDrive\Desktop\jdk-8u202-windows-i586;C:\Users\sande\OneDrive\Desktop\apache-maven-3.8.5;C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1;C:\Users\sande\OneDrive\Desktop\jdk-9.0.4_windows-x64_bin;C:\Users\sande\OneDrive\Desktop\jdk-18.0.1.1\bin;C:\Python310\Scripts\;C:\Python310\;C:\Python\Python36-32\Scripts;C:\Users\sande\AppData\Local\npm-cache_npx;C:\Users\sande\AppData\Local\Microsoft\WindowsApps;C:\Users\sande\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\sande\AppData\Roaming\npm
+USERNAME=sande
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 22621 (10.0.22621.3672)
+OS uptime: 0 days 22:28 hours
+Hyper-V role detected
+
+CPU: total 4 (initial active 4) (4 cores per cpu, 2 threads per core) family 23 model 24 stepping 1 microcode 0x0, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4a, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, hv
+
+Memory: 4k page, system-wide physical 3499M (344M free)
+TotalPageFile size 12130M (AvailPageFile size 53M)
+current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
+current process commit charge ("private bytes"): 51M, peak: 107M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (18.0.1.1+2-6) for windows-amd64 JRE (18.0.1.1+2-6), built on Apr 25 2022 21:53:15 by "mach5one" with MS VC++ 16.8 / 16.9 (VS2019)
+
+END.
