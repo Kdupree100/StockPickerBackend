@@ -13,8 +13,8 @@
     <description>Stock Picker Application</description>
 
     <properties>
-        <java.version>22</java.version>
-        <javafx.version>22</javafx.version>
+        <java.version>17</java.version>
+        <javafx.version>17</javafx.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <spring-boot.version>2.6.0</spring-boot.version>
@@ -61,6 +61,7 @@
         <plugins>
             <!-- Maven Compiler Plugin -->
             <plugin>
+
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.0</version> <!-- Use version 3.10.0 or later -->
