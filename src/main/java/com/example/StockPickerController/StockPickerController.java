@@ -22,7 +22,7 @@ public class StockPickerController {
     @Autowired
     private StockScalperFetch stockScalperFetch;
 
-    @CrossOrigin(origins = {"https://669ca762ec4953971cb32f82--magnificent-marshmallow-d2bdb6.netlify.app","http://localhost:3000"})
+//    @CrossOrigin(origins = {"https://669ca762ec4953971cb32f82--magnificent-marshmallow-d2bdb6.netlify.app","http://localhost:3000"})
     @GetMapping("/live")
     public List<StockData> getLiveStockData(
             @RequestParam String symbols,
