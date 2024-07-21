@@ -24,8 +24,8 @@ public class StockPickerApplication {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
 						.allowedOrigins(
-								"https://669ca762ec4953971cb32f82--magnificent-marshmallow-d2bdb6.netlify.app",
-								"http://localhost:3000"
+								"https://669ca762ec4953971cb32f82--magnificent-marshmallow-d2bdb6.netlify.app"
+//								"http://localhost:3000"
 						)
 						.allowedMethods("GET", "POST", "PUT", "DELETE")
 						.allowedHeaders("*")
