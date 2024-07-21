@@ -27,7 +27,7 @@ public class StockPickerApplication {
 						.allowedMethods("GET", "POST", "PUT", "DELETE")
 						.allowedHeaders("*")
 						.allowCredentials(true);
-			}c
+			}
 		};
 	}
 }
