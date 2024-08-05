@@ -11,6 +11,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ComponentScan(basePackages= {"com.example.StockPickerController"})
 @ComponentScan(basePackages= {"com.example.StockPickerFetch"})
 @ComponentScan(basePackages= {"com.example.StockScalperFetch"})
+@ComponentScan(basePackages= {"com.example.ApiKeyController"})
+@ComponentScan(basePackages= {"com.example.ApiKeyPage"})
+@ComponentScan(basePackages= {"com.example.MainPage"})
 public class StockPickerApplication {
 
 	public static void main(String[] args) {
@@ -24,8 +27,8 @@ public class StockPickerApplication {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
 						.allowedOrigins(
-								"https://669d25d69dd1e08d12104b4b--magnificent-marshmallow-d2bdb6.netlify.app/"
-//								"http://localhost:3000"
+	//						"https://669d25d69dd1e08d12104b4b--magnificent-marshmallow-d2bdb6.netlify.app/"
+								"http://localhost:3000"
 						)
 						.allowedMethods("GET", "POST", "PUT", "DELETE")
 						.allowedHeaders("*")

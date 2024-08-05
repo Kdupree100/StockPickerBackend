@@ -3,6 +3,7 @@ package com.example.StockPickerController;
 import com.example.StockPickerFetch.StockPickerFetch;
 import com.example.StockPickerModel.StockData;
 import com.example.StockScalperFetch.StockScalperFetch;
+import com.example.SharedData.SharedData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,8 @@ import java.util.Map;
 import java.util.Objects;
 
 @RestController
+
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/stocks")
 public class StockPickerController {
 
@@ -21,8 +24,7 @@ public class StockPickerController {
 
     @Autowired
     private StockScalperFetch stockScalperFetch;
-
-//    @CrossOrigin(origins = {"https://669ca762ec4953971cb32f82--magnificent-marshmallow-d2bdb6.netlify.app","http://localhost:3000"})
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/live")
     public List<StockData> getLiveStockData(
             @RequestParam String symbols,
@@ -40,36 +42,52 @@ public class StockPickerController {
             filters.put("earningsOption", earningsOption);
         }
 
+        // Fetch the appropriate API key from SharedData
+        String apiKey = SharedData.getInstance().getApiKey(source);
+
         // Fetch data based on the source
         if ("alpha_vantage".equals(source)) {
-            StockData stockData = stockPickerFetch.fetchStockData(symbols, "daily"); // Adjust the time series as needed
+            StockData stockData = stockPickerFetch.fetchStockData(symbols, "daily", apiKey); // Adjust the time series as needed
             return Collections.singletonList(stockData); // Wrap in a list
         } else if ("polygon".equals(source)) {
-            StockData stockData = stockPickerFetch.fetchStockDataFromPolygon(symbols);
+            StockData stockData = stockPickerFetch.fetchStockDataFromPolygon(symbols, apiKey);
             return Collections.singletonList(stockData); // Wrap in a list
+        }
+        else if ("finnhub".equals(source)) {
+            StockData stockData = stockPickerFetch.fetchLiveStockDataFromFinnhub(symbols, apiKey);
+            return Collections.singletonList(stockData);
         }
 
         return List.of(); // Return an empty list if no valid source is specified
     }
 
+
     @GetMapping("/earnings/alpha")
     public StockData getEarningsDataFromAlphaVantage(@RequestParam String symbol) {
-        return stockPickerFetch.fetchEarningsDataFromAlphaVantage(symbol);
+        String apiKey = SharedData.getInstance().getApiKey("alpha_vantage");
+        return stockPickerFetch.fetchEarningsDataFromAlphaVantage(symbol, apiKey);
     }
 
     @GetMapping("/earnings/polygon")
     public StockData getEarningsDataFromPolygon(@RequestParam String symbol) {
-        return stockPickerFetch.fetchEarningsDataFromPolygon(symbol);
+        String apiKey = SharedData.getInstance().getApiKey("polygon");
+        return stockPickerFetch.fetchEarningsDataFromPolygon(symbol, apiKey);
+    }
+    @GetMapping("/earnings/finnhub")
+    public StockData getEarningsDataFromFinnhub(@RequestParam String symbol) {
+        String apiKey = SharedData.getInstance().getApiKey("finnhub");
+        return stockPickerFetch.fetchEarningsDataFromFinnhub(symbol, apiKey);
     }
 
     @PostMapping("/scalper")
     public List<StockData> getScalperStocks(@RequestBody Map<String, Object> filters) {
         String source = (String) filters.get("source");
+        String apiKey = SharedData.getInstance().getApiKey(source);
 
         if ("alpha_vantage".equals(source)) {
-            return stockScalperFetch.fetchScalperStockData(filters);
+            return stockScalperFetch.fetchScalperStockData(filters, apiKey);
         } else if ("polygon".equals(source)) {
-            return stockScalperFetch.fetchScalperStockData(filters);
+            return stockScalperFetch.fetchScalperStockData(filters, apiKey);
         }
 
         return List.of(); // Return an empty list if no valid source is specified

@@ -35,7 +35,7 @@ public class StockScalperFetch {
         return parseAlphaVantageResponse(responseBody);
     }
 
-    public List<StockData> fetchScalperStockData(Map<String, Object> filters) {
+    public List<StockData> fetchScalperStockData(Map<String, Object> filters, String apiKey) {
         String source = (String) filters.get("source");
         List<StockData> stockDataList = new ArrayList<>();
 

@@ -1,7 +1,5 @@
 package com.example.StockPickerModel;
 
-import org.apache.http.annotation.Contract;
-
 public class StockData {
     private String symbol;
     private double currentPrice;
@@ -14,12 +12,14 @@ public class StockData {
     private String sentiment;
     private String analystRating;
 
+    private int quarter;
+
     private int volume;
 
     // Constructor
 
     public StockData(String symbol, double currentPrice, double entryPoint, double exitPoint, String earningsDate,
-                     String growthPotential, String bargainPotential, String riskLevel, String sentiment, String analystRating) {
+                     String growthPotential, String bargainPotential, String riskLevel, String sentiment, String analystRating, int quarter) {
         this.symbol = symbol;
         this.currentPrice = currentPrice;
 //        this.volume = volume;
@@ -31,6 +31,7 @@ public class StockData {
         this.riskLevel = riskLevel;
         this.sentiment = sentiment;
         this.analystRating = analystRating;
+        this.quarter = quarter;
     }
 
     public StockData() {
@@ -39,6 +40,14 @@ public class StockData {
 
 
     // Getters and setters for all fields
+    public int getQuarter() {
+        return quarter;
+    }
+
+    public void setQuarter(int quarter) {
+        this.quarter = quarter;
+    }
+
     public String getSymbol() {
         return symbol;
     }
@@ -54,6 +63,7 @@ public class StockData {
     public void setCurrentPrice(double currentPrice) {
         this.currentPrice = currentPrice;
     }
+
     public int getVolume() {
         return volume;
     }
@@ -123,6 +133,6 @@ public class StockData {
     }
 
     public void setAnalystRating(String analystRating) {
-        this.analystRating = analystRating;
+        this.analystRating= analystRating;
     }
 }
